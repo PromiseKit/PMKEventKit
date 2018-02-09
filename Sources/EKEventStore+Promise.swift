@@ -43,7 +43,7 @@ public enum EventKitError: Error, CustomStringConvertible {
  - Returns: A promise that fulfills with the EKEventStore.
  */
 public func EKEventStoreRequestAccess() -> Promise<EKEventStore> {
-    return Promise(.pending) { seal in
+    return Promise { seal in
         let eventStore = EKEventStore()
 
         switch EKEventStore.authorizationStatus(for: .event) {
