@@ -7,14 +7,15 @@ matrix:
 
     - {osx_image: xcode9.2, env: 'SWFT=3.2 PLAT=macOS DST="arch=x86_64"'}
     - {osx_image: xcode9.2, env: 'SWFT=3.2 PLAT=iOS   DST="OS=11.2,name=iPhone SE"'}
+
     - {osx_image: xcode9.2, env: 'SWFT=4.0 PLAT=macOS DST="arch=x86_64"'}
     - {osx_image: xcode9.2, env: 'SWFT=4.0 PLAT=iOS   DST="OS=11.2,name=iPhone SE"'}
 cache:
   directories:
   - Carthage
+before_install:
+  - carthage bootstrap --cache-builds --no-use-binaries --platform $PLAT --verbose
 install:
-  - carthage bootstrap --cache-builds --no-use-binaries --platform $PLAT
+  - xcodebuild -scheme PMKEventKit -quiet -destination "$DST" SWIFT_VERSION=$SWFT build-for-testing
 script:
-  - set -o pipefail
-  - xcodebuild -scheme PMKEventKit -quiet -destination "$DST" build SWIFT_VERSION=$SWFT
   - xcodebuild -scheme PMKEventKit -quiet -destination "$DST" test
