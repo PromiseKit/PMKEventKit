@@ -1,3 +1,7 @@
+# STALLED
+
+This project is no longer maintained because its promises and API are not up to standard. You can use it, but we will not maintain it unless the API is improved (feel free to PR!).
+
 # PromiseKit EventKit Extensions ![Build Status]
 
 This project adds promises to Apple’s EventKit framework.
