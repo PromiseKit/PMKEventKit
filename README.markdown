@@ -13,7 +13,7 @@ The extensions are built into `PromiseKit.framework` thus nothing else is needed
 ## Carthage
 
 ```ruby
-github "PromiseKit/PMKEventKit" ~> 3.0
+github "PromiseKit/PMKEventKit" ~> 4.0
 ```
 
 The extensions are built into their own framework:
